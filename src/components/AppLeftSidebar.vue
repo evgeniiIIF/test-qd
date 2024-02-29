@@ -15,6 +15,10 @@
   background: #eee;
   cursor: pointer;
 
+  &:hover {
+    background: darken($color: #eee, $amount: 3);
+  }
+
   &__link {
     display: block;
     height: 100%;

@@ -23,7 +23,8 @@ export const tasksStore = defineStore('tasks', () => {
   });
 
   const addTask = () => {
-    const newTaskId = state.value.tasks[state.value.tasks.length - 1].id + 1;
+    const tasks = state.value.tasks;
+    const newTaskId = tasks[tasks.length - 1] ? tasks[tasks.length - 1].id + 1 : 1;
 
     const newTask: Task = {
       id: newTaskId,
@@ -34,6 +35,9 @@ export const tasksStore = defineStore('tasks', () => {
   };
 
   const deleteTask = (targetTask: Task) => {
+    if (state.value.tasks.length === 0) {
+      return;
+    }
     const newTasks = state.value.tasks.filter((task) => task.id !== targetTask.id);
     state.value.tasks = [...newTasks];
     saveTasks();

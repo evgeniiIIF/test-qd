@@ -5,7 +5,7 @@ const { addTask, deleteTask } = useTasksStore().actions;
 const { getTasks } = useTasksStore().getters;
 </script>
 <template>
-  <ul class="task-list">
+  <ul v-if="getTasks.length" class="task-list">
     <li v-for="task of getTasks" :key="task.id" class="task-list__item">
       <div class="task-list__item-name">{{ task.name }}</div>
       <button @click="deleteTask(task)" class="task-list__item-delete button" type="button">
@@ -13,6 +13,7 @@ const { getTasks } = useTasksStore().getters;
       </button>
     </li>
   </ul>
+  <p v-else class="text">Создайте задачу</p>
   <button @click="addTask()" class="button button--add">Add</button>
 </template>
 
@@ -40,5 +41,10 @@ const { getTasks } = useTasksStore().getters;
     width: 100%;
     padding: 24px;
   }
+}
+.text {
+  font-size: 24px;
+  text-align: center;
+  padding: 24px;
 }
 </style>
