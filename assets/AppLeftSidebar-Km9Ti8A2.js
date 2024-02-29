@@ -1,1 +1,0 @@
-import{_ as t,r as o,o as s,c as a,a as r,w as c,b as n}from"./index-CGkOSsxL.js";const _={},l={class:"left-sidebar"};function i(d,f){const e=o("router-link");return s(),a("aside",l,[r(e,{to:"/",class:"left-sidebar__link"},{default:c(()=>[n("Вернуться на главную")]),_:1})])}const m=t(_,[["render",i]]);export{m as default};
